@@ -11,9 +11,12 @@ import {
 import { Link } from "expo-router";
 import React, { useEffect, useState, useContext } from "react";
 import { Audio, AVPlaybackStatus } from "expo-av";
+
 // import { AuthContext, AuthProvider } from "../contexts/Auth";
 
 const splashSound = require("../assets/media/splash.mp3");
+const loginSound = require("../assets/media/signUplogIn.mp3");
+
 const placeholderLogo = require("../assets/images/placeholderLogo.png");
 
 export default function App() {
@@ -36,6 +39,20 @@ export default function App() {
     };
   }, []);
 
+  const playLoginSound = async (): Promise<void> => {
+    const loginSoundObject = new Audio.Sound();
+    try {
+      await loginSoundObject.loadAsync(loginSound);
+      await loginSoundObject.playAsync();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handlePress = (): void => {
+    playLoginSound();
+  };
+
   return (
     // <AuthProvider>
     <ImageBackground
@@ -48,12 +65,12 @@ export default function App() {
           style={styles.logo}
         />
         <Link href={"./LoginPage"} asChild>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={handlePress}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
         </Link>
         <Link href={"./SignUpPage"} asChild>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={handlePress}>
             <Text style={styles.buttonText}>Sign Up</Text>
           </TouchableOpacity>
         </Link>

@@ -63,7 +63,6 @@ const SignUpPage: FC<SignUpPageProps> = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => {
-          console.log(values);
           const newAccount = {
             email: values.email,
             username: values.username,

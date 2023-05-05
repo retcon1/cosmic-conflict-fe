@@ -10,7 +10,7 @@ import {
   Pressable,
   Image,
 } from "react-native";
-// import { postAccount } from "../utils/api";
+import { Audio, AVPlaybackStatus } from "expo-av";
 import * as api from "../utils/api";
 
 //Form validation
@@ -38,6 +38,23 @@ const RaceSelect: FC<SignUpPageProps> = () => {
   const router = useRouter();
   const human = require("../assets/images/human.png");
   const alien = require("../assets/images/alien.png");
+  const alienSound = require("../assets/media/characterCreation/alien.mp3");
+
+  const handlePress = (race: string): void => {
+    playButtonSound(race);
+  };
+
+  const playButtonSound = async (race: string): Promise<void> => {
+    if (race === "Alien") {
+      const alienSoundObject = new Audio.Sound();
+      try {
+        await alienSoundObject.loadAsync(alienSound);
+        await alienSoundObject.playAsync();
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
 
   return (
     <SafeAreaView style={styles.form}>
@@ -48,13 +65,12 @@ const RaceSelect: FC<SignUpPageProps> = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => {
-          //console.log(values);
           const newAccount = {
             race: values.race,
           };
           setUser(newAccount);
-
-          postAccount(newAccount);
+          handlePress(newAccount.race);
+          api.createCharacter(newAccount);
           router.push({ pathname: "./CharacterPage" });
         }}
       >

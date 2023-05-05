@@ -8,7 +8,11 @@ export const createNewAccount = async (postedAccount) => {
   console.log(postedAccount);
 
   const response = await gameAPI.post("/auth/signup", postedAccount);
-  console.log(response.data);
+  return response.data;
+};
+
+export const createCharacter = async (postedCharacter) => {
+  const response = await gameAPI.post("/characters/create", postedCharacter);
   return response.data;
 };
 
