@@ -3,6 +3,7 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Link } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CharacterPage = () => {
   return (
@@ -30,7 +31,7 @@ const CharacterPage = () => {
         <View>
           <Link href={"./Battle"}>
             <Pressable style={styles.button}>
-              <Text style={styles.buttonText}>Battle!</Text>
+              <FontAwesomeIcon icon="fa-sharp fa-regular fa-sword" beatFade />
             </Pressable>
           </Link>
         </View>

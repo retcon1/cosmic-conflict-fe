@@ -10,12 +10,15 @@ import {
   Pressable,
 } from "react-native";
 import { postAccount } from "../utils/api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlanetMoon } from "@fortawesome/free-solid-svg-icons";
+
 
 //Form validation
 import * as Yup from "yup";
 import { useRouter } from "expo-router";
 
-interface LoginPageProps {}
+interface LoginPageProps { }
 
 const LoginSchema = Yup.object().shape({
   username: Yup.string().required(),
@@ -91,7 +94,7 @@ const LoginPage: FC<LoginPageProps> = () => {
         )}
       </Formik>
       <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-        <Text>Go Back</Text>
+        <FontAwesomeIcon icon="fa-light fa-planet-moon" fade />
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -130,9 +133,9 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   backButton: {
-    margin: 10,
-    padding: 10,
-    borderRadius: 10,
+    margin: 20,
+    padding: 20,
+    borderRadius: 6,
     borderWidth: 2,
     borderColor: "black",
     backgroundColor: "white",
