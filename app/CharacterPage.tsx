@@ -3,7 +3,8 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Link } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faMugSaucer } from "@fortawesome/free-solid-svg-icons/faMugSaucer";
 
 const CharacterPage = () => {
   return (
@@ -31,7 +32,7 @@ const CharacterPage = () => {
         <View>
           <Link href={"./Battle"}>
             <Pressable style={styles.button}>
-              <FontAwesomeIcon icon="fa-sharp fa-regular fa-sword" beatFade />
+              <FontAwesomeIcon icon={faMugSaucer} />{" "}
             </Pressable>
           </Link>
         </View>
