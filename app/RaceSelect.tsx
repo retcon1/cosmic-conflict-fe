@@ -12,7 +12,6 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 
 //Form validation
 import * as Yup from "yup";

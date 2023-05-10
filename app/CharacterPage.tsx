@@ -11,6 +11,11 @@ import { Link } from "expo-router";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import useGlobalStorage from "../hooks/useGlobalStorage";
 import Loading from "../components/Loading";
+import moneyIcon from "../assets/collection/character/money.png";
+import shieldIcon from "../assets/collection/character/shield.png";
+import swordIcon from "../assets/collection/character/sword.png";
+import shopIcon from "../assets/collection/character/shopping.png";
+import battleIcon from "../assets/collection/character/twoswords.png";
 
 interface Character {
   characterName: string;
@@ -46,7 +51,7 @@ const CharacterPage: React.FC = () => {
 
   return (
     <ImageBackground
-      source={require("../assets/images/charPageBG.jpg")}
+      source={require("../assets/collection/fightscene/download.gif")}
       style={styles.container}
     >
       {isLoading ? (
@@ -73,19 +78,19 @@ const CharacterPage: React.FC = () => {
             )}
           </View>
           <View style={styles.row}>
-            <Text style={styles.label}>Attack </Text>
+            <Image source={swordIcon} style={styles.icon} />
             <Text style={[styles.value, { color: "red" }]}>
               {character.attack}
             </Text>
           </View>
           <View style={styles.row}>
-            <Text style={styles.label}>Defence </Text>
+            <Image source={shieldIcon} style={styles.icon} />
             <Text style={[styles.value, { color: "#939596" }]}>
               {character.defence}
             </Text>
           </View>
           <View style={styles.row}>
-            <Text style={styles.label}>Credits </Text>
+            <Image source={moneyIcon} style={styles.icon} />
             <Text style={styles.value}>{character.gold}</Text>
           </View>
           <View>
@@ -104,15 +109,15 @@ const CharacterPage: React.FC = () => {
           </View>
           <View>
             <Link href={"./Shop"}>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Shop</Text>
+              <TouchableOpacity style={styles.shopButton}>
+                <Image source={shopIcon} style={styles.icon} />
               </TouchableOpacity>
             </Link>
           </View>
           <View>
             <Link href={"./Battle"}>
-              <Pressable style={styles.button}>
-                <Text style={styles.buttonText}>Battle!</Text>
+              <Pressable style={styles.battleButton}>
+                <Image source={battleIcon} style={styles.icon} />
               </Pressable>
             </Link>
           </View>
@@ -129,9 +134,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    fontSize: 24,
+    fontSize: 34,
     fontWeight: "bold",
-    marginBottom: 15,
+    position: "relative",
+    top: -160,
     color: "white",
     textShadowColor: "#000",
     textShadowOffset: { width: 2, height: 2 },
@@ -139,7 +145,8 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    marginVertical: 10,
+    marginVertical: 20,
+    top: 40,
   },
   label: {
     fontSize: 18,
@@ -168,10 +175,14 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 2,
   },
-  button: {
-    marginTop: 30,
-    backgroundColor: "white",
-    paddingHorizontal: 20,
+  shopButton: {
+    width: 90,
+    height: 70,
+    position: 'absolute',
+    left: -170,
+    bottom: 600,
+    backgroundColor: "d68888",
+    paddingHorizontal: 25,
     paddingVertical: 10,
     borderRadius: 10,
   },
@@ -179,16 +190,30 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  battleButton: {
+    width: 90,
+    height: 70,
+    position: 'absolute',
+    left: 90,
+    bottom: 600,
+    backgroundColor: "d68888",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+  },
   image: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
     borderRadius: 30,
     marginVertical: 10,
   },
   imageWrapper: {
     width: 100,
     height: 100,
-    marginBottom: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    bottom: 30,
+    marginBottom: 10,
     borderRadius: 30,
     elevation: 5,
     shadowColor: "black",
@@ -196,6 +221,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
   },
+  icon: {
+    width: 55,
+    height: 55,
+  }
 });
 
 export default CharacterPage;
