@@ -18,7 +18,6 @@ import { useRouter } from "expo-router";
 interface AccountProps {
   logout: () => void;
   showModal: () => void;
-
 }
 
 const Shop: FC<AccountProps> = ({ logout }) => {
@@ -100,7 +99,10 @@ const Shop: FC<AccountProps> = ({ logout }) => {
         <Text style={styles.credits}>
           Total Credits: <Text style={{ color: "white" }}>{user.gold}</Text>
         </Text>
-        <Pressable onPress={() => router.back()} style={styles.button}>
+        <Pressable
+          onPress={() => router.push("./CharacterPage")}
+          style={styles.button}
+        >
           <Text>Go Back</Text>
         </Pressable>
       </SafeAreaView>
@@ -173,7 +175,6 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 2,
     textAlign: "center",
-    
   },
   button: {
     marginBottom: 40,
