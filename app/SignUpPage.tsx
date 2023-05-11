@@ -98,7 +98,7 @@ const SignUpPage: FC<SignUpPageProps> = () => {
   return (
     <ImageBackground
       source={backgroundImages[backgroundImageIndex]}
-      style={styles.background}
+      style={{ ...styles.background, height: "100%", width: "100%" }}
       resizeMode="cover"
     >
       <Text style={styles.title}>Create your character</Text>
@@ -230,6 +230,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    resizeMode: "cover",
   },
   form: {
     flex: 1,

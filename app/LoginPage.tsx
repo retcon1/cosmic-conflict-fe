@@ -21,7 +21,7 @@ import * as Yup from "yup";
 import { useRouter } from "expo-router";
 import { setAsyncStorage } from "../utils/asyncStorage";
 
-interface LoginPageProps {}
+interface LoginPageProps { }
 
 const LoginSchema = Yup.object().shape({
   username: Yup.string().required(),
@@ -79,7 +79,7 @@ const LoginPage: FC<LoginPageProps> = () => {
   return (
     <ImageBackground
       source={backgroundImages[backgroundImageIndex]}
-      style={styles.background}
+      style={{ ...styles.background, height: "100%", width: "100%" }}
       resizeMode="cover"
     >
       <SafeAreaView style={styles.form}>

@@ -145,13 +145,14 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    marginVertical: 20,
-    top: 40,
+    alignItems: "center",
+    marginVertical: 10,
+    marginHorizontal: 10,
   },
   label: {
     fontSize: 18,
     fontWeight: "bold",
-    marginRight: 10,
+    marginRight: 20,
     color: "white",
     textShadowColor: "black",
     textShadowOffset: { width: 2, height: 2 },
@@ -179,8 +180,8 @@ const styles = StyleSheet.create({
     width: 90,
     height: 70,
     position: 'absolute',
-    left: -170,
-    bottom: 600,
+    left: -180,
+    bottom: 500,
     backgroundColor: "d68888",
     paddingHorizontal: 25,
     paddingVertical: 10,
@@ -195,7 +196,7 @@ const styles = StyleSheet.create({
     height: 70,
     position: 'absolute',
     left: 90,
-    bottom: 600,
+    bottom: 500,
     backgroundColor: "d68888",
     paddingHorizontal: 20,
     paddingVertical: 10,
@@ -224,6 +225,7 @@ const styles = StyleSheet.create({
   icon: {
     width: 55,
     height: 55,
+    marginRight: 10,
   }
 });
 
