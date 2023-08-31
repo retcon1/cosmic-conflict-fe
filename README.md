@@ -14,5 +14,6 @@ Each hour you'll earn some credits, which you can spend on new items to upgrade 
 You'll also notice a section of the shop for healing items which may be implemented in the future.
 
 You can see the backend code for this project here: https://github.com/Bilaal96/alien-wars-api
+You can see the full presentation of the game here: https://youtu.be/q5eUmA5dFSg
 
 ### Thank you for checking out our group project!
